@@ -5,7 +5,16 @@ $(document).ready(() => {
             url: 'http://localhost:3000/results',
             type: 'GET',
             success: (data) => {
-                console.log(data.time, data.supply);
+                // graph data
+                var data = [
+                    {
+                        x: data.time,
+                        y: data.supply,
+                        type: 'scatter'
+                    }
+                ];
+                // plot graph
+                Plotly.newPlot('myDiv', data);
             }
         })
     })
